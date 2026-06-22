@@ -8,15 +8,13 @@ url="https://github.com/keqing-dots/keqingsay"
 license=('MIT')
 depends=()
 makedepends=('rust' 'cargo')
-source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
-sha256sums=('SKIP')
+source=()
+sha256sums=()
 
 build() {
-    cd "$pkgname-$pkgver"
-    cargo build --release --locked
+    cargo build --release --locked --manifest-path "$startdir/Cargo.toml" --target-dir "$startdir/target"
 }
 
 package() {
-    cd "$pkgname-$pkgver"
-    install -Dm755 "target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
+    install -Dm755 "$startdir/target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
 }
