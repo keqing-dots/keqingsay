@@ -12,7 +12,7 @@ source=()
 sha256sums=()
 
 build() {
-    cargo build --release --locked --manifest-path "$startdir/Cargo.toml" --target-dir "$startdir/target"
+    cargo build --release --manifest-path "$startdir/Cargo.toml" --target-dir "$startdir/target"
 }
 
 package() {

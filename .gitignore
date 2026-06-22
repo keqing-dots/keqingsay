@@ -2,6 +2,11 @@
 /target/
 Cargo.lock
 
+# makepkg
+/pkg/
+*.pkg.tar.zst
+*.pkg.tar.xz
+
 # Build artifacts
 /build/
 *.d
