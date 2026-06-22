@@ -1,0 +1,15 @@
+[package]
+name = "keqingsay"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "keqingsay"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+crossterm = "0.28"
+lazy_static = "1"
+rand = "0.9"
+tokio = { version = "1", features = ["full"] }
