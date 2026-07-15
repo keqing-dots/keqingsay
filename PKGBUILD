@@ -8,6 +8,7 @@ url="https://github.com/keqing-dots/keqingsay"
 license=('MIT')
 depends=()
 makedepends=('rust' 'cargo')
+options=('!debug')
 source=()
 sha256sums=()
 

@@ -14,10 +14,10 @@ async fn main() {
     let cli = Cli::parse();
 
     match cli.command {
-        Commands::Say { text } => {
-            display_say_command(&STATIC_FRAME, &text);
+        None => {
+            display_say_command(&STATIC_FRAME, &cli.text.unwrap_or_default());
         }
-        Commands::Animate { text, variant } => {
+        Some(Commands::Animate { text, variant }) => {
             let frames = match variant {
                 2 => &*ANIMATE2_FRAMES,
                 3 => &*ANIMATE3_FRAMES,
@@ -57,7 +57,7 @@ async fn main() {
                 std::process::exit(1);
             }
         }
-        Commands::Freestyle { text } => {
+        Some(Commands::Freestyle { text }) => {
             if !check_terminal_size().unwrap_or(false) {
                 println!("your terminal is too small for keqing");
                 return;

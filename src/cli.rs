@@ -8,17 +8,14 @@ use clap::{Parser, Subcommand};
 #[command(version)]
 pub struct Cli {
     #[command(subcommand)]
-    pub command: Commands,
+    pub command: Option<Commands>,
+
+    /// The text for Keqing to say (used when no subcommand is given)
+    pub text: Option<String>,
 }
 
 #[derive(Subcommand)]
 pub enum Commands {
-    /// Display Keqing saying the provided text
-    Say {
-        /// The text for Keqing to say
-        text: String,
-    },
-
     /// Display an animated Keqing (variant 1, 2, or 3, default: 1)
     Animate {
         /// The text for Keqing to say
