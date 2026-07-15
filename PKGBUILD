@@ -18,4 +18,6 @@ build() {
 
 package() {
     install -Dm755 "$startdir/target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
+    rm -rf "$startdir/target"
+    rm -f "$startdir/Cargo.lock"
 }
